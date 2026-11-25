@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flex Gym | Gym in Lal Kuan, Chandni Chowk, Delhi</title>
+<meta name="description" content="Flex Gym in Kucha Pandit Rd, Lal Kuan, Old Delhi. 3,600 sq ft of strength, cardio, yoga and Zumba with certified trainers. Open until 10 PM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEDEA;
+  --surface:#FFFFFF;
+  --ink:#16181D;
+  --muted:#555B66;
+  --accent:#2B50FF;
+  --accent-dark:#1B37C4;
+  --yellow:#FFD23F;
+  --line:#D4D4CF;
+  --head:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+  --body:'Barlow',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1080px,92%);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);text-transform:uppercase;line-height:.98;letter-spacing:.005em}
+h1{font-size:clamp(3.2rem,12vw,7.5rem);font-weight:800}
+h2{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;margin-bottom:.8rem}
+h3{font-size:1.7rem;font-weight:800;margin-bottom:.4rem}
+p{max-width:60ch}
+section{padding:4.5rem 0}
+
+header{position:sticky;top:0;z-index:10;background:var(--ink);color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+.logo{font-family:var(--head);font-weight:800;font-size:1.8rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--yellow)}
+nav ul{display:flex;gap:1.6rem;list-style:none;align-items:center}
+nav a{text-decoration:none;font-weight:600}
+nav a:hover{color:var(--yellow)}
+.menu-btn{display:none;background:none;border:2px solid #fff;color:#fff;border-radius:6px;padding:.35rem .8rem;font:inherit;font-weight:600;cursor:pointer}
+
+.btn{display:inline-block;padding:.9rem 1.7rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--accent);font-size:1.05rem;font-family:var(--body);cursor:pointer;transition:background .2s,color .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-yellow{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn-yellow:hover{background:#fff;border-color:#fff}
+
+.hero{padding:5rem 0 4rem}
+.hero .lead{font-size:1.3rem;color:var(--muted);margin:1.6rem 0 2rem}
+.hero .actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hl{background:var(--yellow);padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+.facts{background:var(--ink);color:#fff;padding:2.4rem 0}
+.facts .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.6rem}
+.facts strong{display:block;font-family:var(--head);font-size:2.8rem;font-weight:800;color:var(--yellow);line-height:1}
+.facts span{color:#C7CBD3}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:2rem}
+.card{background:var(--surface);border-top:6px solid var(--accent);padding:1.6rem}
+.card p{color:var(--muted);font-size:1rem}
+
+.trainers{background:var(--accent);color:#fff}
+.trainers p{color:#E3E8FF}
+.trainers .btn{margin-top:1.6rem}
+
+.visit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.4rem;margin-top:1.5rem}
+.info dt{font-weight:600;margin-top:1rem}
+.info dd{color:var(--muted)}
+.info a{color:var(--accent-dark);font-weight:600}
+
+form{display:grid;gap:1rem}
+label{font-weight:600;font-size:.95rem}
+input,select,textarea{width:100%;padding:.8rem 1rem;border:2px solid var(--line);border-radius:6px;font:inherit;background:var(--surface);color:var(--ink);margin-top:.3rem}
+textarea{min-height:100px;resize:vertical}
+#fmsg{min-height:1.5em;font-weight:600;color:#B3261E}
+.note{font-size:.9rem;color:var(--muted)}
+
+footer.site{background:var(--ink);color:#C7CBD3;padding:2rem 0;font-size:.95rem}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:20;background:#25D366;color:#0b3d1d;font-weight:600;text-decoration:none;padding:.8rem 1.2rem;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+
+@media(max-width:720px){
+  .menu-btn{display:block}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);padding:.5rem 4% 1rem}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:.7rem 0}
+  section{padding:3.2rem 0}
+  .hero{padding:3rem 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Flex<span>Gym</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a href="#train">Training</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#visit">Visit us</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Train hard in the heart of <span class="hl">Old Delhi</span></h1>
+      <p class="lead">Strength, cardio, yoga and Zumba in a 3,600 sq ft gym at Lal Kuan, Chandni Chowk. Certified trainers, a motivating crowd, and open until 10 PM.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/918368561341?text=Hi%20Flex%20Gym%2C%20I%20want%20to%20know%20about%20membership." target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+918368561341">Call 083685 61341</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap">
+      <div><strong>3,600</strong><span>sq ft of workout space</span></div>
+      <div><strong>4.4/5</strong><span>on Google from 12 reviews</span></div>
+      <div><strong>10 PM</strong><span>Closing time, so you can train after work</span></div>
+    </div>
+  </div>
+
+  <section id="train">
+    <div class="wrap">
+      <h2>What you can train</h2>
+      <p>Pick your style or mix them. Our trainers will set you up with a plan that fits your goal.</p>
+      <div class="grid">
+        <article class="card"><h3>Strength training</h3><p>Build muscle and power with weights and machines, with guidance on proper form.</p></article>
+        <article class="card"><h3>Cardio</h3><p>Burn fat and build stamina on a full cardio floor.</p></article>
+        <article class="card"><h3>Yoga</h3><p>Improve flexibility, balance and recovery in guided classes.</p></article>
+        <article class="card"><h3>Zumba</h3><p>High-energy dance workouts that make fitness fun.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="trainers" id="trainers">
+    <div class="wrap">
+      <h2>Certified trainers, real guidance</h2>
+      <p>New to the gym or chasing a tough goal? Our certified trainers help you start safely and keep progressing. Ask us about personal training.</p>
+      <a class="btn btn-yellow" href="https://wa.me/918368561341?text=Hi%20Flex%20Gym%2C%20I%20want%20to%20ask%20about%20personal%20training." target="_blank" rel="noopener">Ask about personal training</a>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <h2>Visit Flex Gym</h2>
+      <div class="visit-grid">
+        <dl class="info">
+          <dt>Address</dt>
+          <dd>3466 GF, Kucha Pandit Rd, Lal Kuan Bazar, New Delhi, Delhi 110006</dd>
+          <dt>Hours</dt>
+          <dd>Open daily, closes at 10 PM</dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+918368561341">083685 61341</a></dd>
+          <dt>Directions</dt>
+          <dd><a href="https://www.google.com/maps/search/?api=1&query=Flex+Gym+Kucha+Pandit+Rd+Lal+Kuan+Bazar+New+Delhi+110006" target="_blank" rel="noopener">Open in Google Maps</a></dd>
+        </dl>
+        <div id="join">
+          <h3>Join or book a free visit</h3>
+          <form id="joinForm" novalidate>
+            <label>Your name<input type="text" id="fname" required autocomplete="name"></label>
+            <label>Your goal
+              <select id="fgoal">
+                <option>Build muscle</option>
+                <option>Lose weight</option>
+                <option>Get fitter</option>
+                <option>Yoga or Zumba</option>
+                <option>Personal training</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Send on WhatsApp</button>
+            <p id="fmsg" role="alert"></p>
+            <p class="note">This opens WhatsApp with your message ready to send to the gym.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> Flex Gym, Lal Kuan, Chandni Chowk, Delhi</span>
+    <span>083685 61341</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/918368561341" target="_blank" rel="noopener" aria-label="Chat with Flex Gym on WhatsApp">WhatsApp</a>
+
+<script>
+  const btn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
+  btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+  menu.addEventListener('click',e=>{if(e.target.tagName==='A'){menu.classList.remove('open');btn.setAttribute('aria-expanded',false)}});
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  document.getElementById('joinForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.getElementById('fname').value.trim(),goal=document.getElementById('fgoal').value,msg=document.getElementById('fmsg');
+    if(!name){msg.textContent='Please enter your name.';return}
+    msg.textContent='';
+    const text='Hi Flex Gym, my name is '+name+'. My goal: '+goal+'. I would like to join or visit.';
+    window.open('https://wa.me/918368561341?text='+encodeURIComponent(text),'_blank','noopener');
+  });
+</script>
+</body>
+</html>
